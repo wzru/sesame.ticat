@@ -28,7 +28,7 @@ if [ -z "${run_begin}" ]; then
 fi
 run_end=`must_env_val "${env}" 'bench.run.end'`
 run_log=`must_env_val "${env}" 'bench.run.log'`
-detail=(`must_env_val "${env}" 'bench.tpch.detail'`)
+detail=(`must_env_val "${env}" 'bench.sesame.detail'`)
 tag=`env_val "${env}" 'bench.tag'`
 
 ## Write the record tables if has meta db
@@ -94,14 +94,13 @@ function write_record()
 			"
 
 	my_exe "INSERT INTO ${table} (                  \
-		score, bench_begin, run_begin,              \
+		bench_begin, run_begin,                     \
 		${detail[0]} tag                            \
 	)                   				            \
 		VALUES (                                    \
-		${score},                                   \
 		FROM_UNIXTIME(${bench_begin}),              \
 		FROM_UNIXTIME(${run_begin}),                \
-		${detail[1]}                                \
+		${detail[1]},                               \
 		\"${tag}\"                                  \
 	)                                               \
 	"

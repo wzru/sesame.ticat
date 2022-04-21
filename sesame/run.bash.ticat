@@ -1,7 +1,7 @@
 help = run Sesame benchmark
 
 [arg]
-bin = ./benchmark
+bin = benchmark
 
 [arg2env]
 bench.sesame.bin = bin
