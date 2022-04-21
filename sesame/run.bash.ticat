@@ -1,0 +1,14 @@
+help = run Sesame benchmark
+
+[arg]
+bin = ./benchmark
+
+[arg2env]
+bench.sesame.bin = bin
+
+[env]
+bench.workload = write
+bench.run.begin = write
+bench.run.end = write
+bench.run.log = write
+bench.run.detail = write

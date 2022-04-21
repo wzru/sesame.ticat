@@ -1,0 +1,68 @@
+help = config Sesame benchmark
+abbr = conf
+
+[arg]
+algo = 0
+input_file = datasets/CoverType.txt
+num_points = 3000
+dim = 54
+num_clusters = 7
+max_in_nodes = 20
+max_leaf_nodes = 40
+distance_threshold = 10.0
+seed = 1
+coreset_size = 100
+radius = 50.0
+delta = 100.0
+beta = 0.1
+buf_size = 100
+alpha = 0.998
+lambda = 1.0
+clean_interval = 400
+min_weight = 0.5
+base = 2
+cm = 5.0
+cl = 0.8
+grid_width = 12.0
+min_points = 10
+epsilon = 20.0
+mu = 2.0
+num_last_arr = 2
+time_window = 200
+num_online_clusters = 80
+delta_grid = 0.2
+num_samples = 100
+
+[arg2env]
+bench.sesame.algo = algo
+bench.sesame.input_file = input_file
+bench.sesame.num_points = num_points
+bench.sesame.dim = dim
+bench.sesame.num_clusters = num_clusters
+bench.sesame.max_in_nodes = max_in_nodes
+bench.sesame.max_leaf_nodes = max_leaf_nodes
+bench.sesame.distance_threshold = distance_threshold
+bench.sesame.seed = seed
+bench.sesame.coreset_size = coreset_size
+bench.sesame.radius = radius
+bench.sesame.delta = delta
+bench.sesame.beta = beta
+bench.sesame.buf_size = buf_size
+bench.sesame.alpha = alpha
+bench.sesame.lambda = lambda
+bench.sesame.clean_interval = clean_interval
+bench.sesame.min_weight = min_weight
+bench.sesame.base = base
+bench.sesame.cm = cm
+bench.sesame.cl = cl
+bench.sesame.grid_width = grid_width
+bench.sesame.min_points = min_points
+bench.sesame.epsilon = epsilon
+bench.sesame.mu = mu
+bench.sesame.num_last_arr = num_last_arr
+bench.sesame.time_window = time_window
+bench.sesame.num_online_clusters = num_online_clusters
+bench.sesame.delta_grid = delta_grid
+bench.sesame.num_samples = num_samples
+
+[val2env]
