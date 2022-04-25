@@ -13,7 +13,7 @@ fi
 meta_port=`must_env_val "${env}" 'bench.meta.port'`
 meta_db=`must_env_val "${env}" 'bench.meta.db-name'`
 meta_user=`must_env_val "${env}" 'bench.meta.user'`
-meta_pass=`must_env_val "${env}" 'bench.meta.pass'`
+meta_pass=`env_val "${env}" 'bench.meta.pass'`
 
 # The context of one bench
 bench_tag=`env_val "${env}" 'bench.tag'`
@@ -37,10 +37,19 @@ tag=`env_val "${env}" 'bench.tag'`
 function my_exe()
 {
 	local query="${1}"
+if [ -z "${meta_pass}" ]; then
 	mysql -h "${meta_host}" -P "${meta_port}" -u "${meta_user}" --database="${meta_db}" -e "${query}"
+else
+    mysql -h "${meta_host}" -P "${meta_port}" -u "${meta_user}" -p "${meta_pass}" --database="${meta_db}" -e "${query}"
+fi
 }
 
-mysql -h "${meta_host}" -P "${meta_port}" -u "${meta_user}" -e "CREATE DATABASE IF NOT EXISTS ${meta_db}"
+if [ -z "${meta_pass}" ]; then
+    mysql -h "${meta_host}" -P "${meta_port}" -u "${meta_user}" -e "CREATE DATABASE IF NOT EXISTS ${meta_db}"
+else
+    mysql -h "${meta_host}" -P "${meta_port}" -u "${meta_user}" -p "${meta_pass}" -e "CREATE DATABASE IF NOT EXISTS ${meta_db}"
+fi
+
 
 function write_record()
 {
