@@ -59,6 +59,7 @@ function write_record()
                 id INT PRIMARY KEY AUTO_INCREMENT, 	\
                 bench_begin TIMESTAMP, 				\
                 run_begin TIMESTAMP, 				\
+                run_end TIMESTAMP, 					\
                 tag VARCHAR(512), 					\
                 algo VARCHAR(16), 					\
                 workload VARCHAR(16), 				\
@@ -104,11 +105,13 @@ function write_record()
 
 	my_exe "INSERT INTO ${table} (                  \
 		bench_begin, run_begin,                     \
+        run_end,                                    \
 		${detail[0]} tag                            \
 	)                   				            \
 		VALUES (                                    \
 		FROM_UNIXTIME(${bench_begin}),              \
 		FROM_UNIXTIME(${run_begin}),                \
+		FROM_UNIXTIME(${run_end}),                  \
 		${detail[1]},                               \
 		\"${tag}\"                                  \
 	)                                               \
