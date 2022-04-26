@@ -37,7 +37,7 @@ num_online_clusters=`must_env_val "${env}" 'bench.sesame.num_online_clusters'`
 delta_grid=`must_env_val "${env}" 'bench.sesame.delta_grid'`
 num_samples=`must_env_val "${env}" 'bench.sesame.num_samples'`
 
-log="${session}/sesame.`date +%s`.log"
+log="${session}/sesame.`date +%s%N`.log"
 echo "bench.run.log=${log}" >> "${session}/env"
 
 begin=`timestamp`

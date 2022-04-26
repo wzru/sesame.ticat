@@ -91,10 +91,10 @@ function write_record()
                 num_online_clusters INT, 			\
                 delta_grid DOUBLE, 					\
                 num_samples DOUBLE, 				\
-                ds_us INT, 							\
-                out_us INT, 						\
-                ref_us INT, 						\
-                sum_us INT, 						\
+                ds_us BIGINT, 						\
+                out_us BIGINT, 						\
+                ref_us BIGINT, 						\
+                sum_us BIGINT, 						\
                 lat_us DOUBLE, 						\
                 et_s DOUBLE, 						\
                 qps DOUBLE, 						\
