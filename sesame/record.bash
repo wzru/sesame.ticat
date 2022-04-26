@@ -40,14 +40,14 @@ function my_exe()
 if [ -z "${meta_pass}" ]; then
 	mysql -h "${meta_host}" -P "${meta_port}" -u "${meta_user}" --database="${meta_db}" -e "${query}"
 else
-    mysql -h "${meta_host}" -P "${meta_port}" -u "${meta_user}" -p "${meta_pass}" --database="${meta_db}" -e "${query}"
+    mysql -h "${meta_host}" -P "${meta_port}" -u "${meta_user}" --password="${meta_pass}" --database="${meta_db}" -e "${query}"
 fi
 }
 
 if [ -z "${meta_pass}" ]; then
     mysql -h "${meta_host}" -P "${meta_port}" -u "${meta_user}" -e "CREATE DATABASE IF NOT EXISTS ${meta_db}"
 else
-    mysql -h "${meta_host}" -P "${meta_port}" -u "${meta_user}" -p "${meta_pass}" -e "CREATE DATABASE IF NOT EXISTS ${meta_db}"
+    mysql -h "${meta_host}" -P "${meta_port}" -u "${meta_user}" --password="${meta_pass}" -e "CREATE DATABASE IF NOT EXISTS ${meta_db}"
 fi
 
 
