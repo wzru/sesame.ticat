@@ -36,6 +36,11 @@ time_window=`must_env_val "${env}" 'bench.sesame.time_window'`
 num_online_clusters=`must_env_val "${env}" 'bench.sesame.num_online_clusters'`
 delta_grid=`must_env_val "${env}" 'bench.sesame.delta_grid'`
 num_samples=`must_env_val "${env}" 'bench.sesame.num_samples'`
+landmark=`must_env_val "${env}" 'bench.sesame.landmark'`
+sliding=`must_env_val "${env}" 'bench.sesame.sliding'`
+outlier_distance_threshold=`must_env_val "${env}" 'bench.sesame.outlier_distance_threshold'`
+outlier_cap=`must_env_val "${env}" 'bench.sesame.outlier_cap'`
+neighbor_distance=`must_env_val "${env}" 'bench.sesame.neighbor_distance'`
 
 log="${session}/sesame.`date +%s%N`.log"
 echo "bench.run.log=${log}" >> "${session}/env"
@@ -73,6 +78,11 @@ begin=`timestamp`
 --num_online_clusters="${num_online_clusters}" \
 --delta_grid="${delta_grid}" \
 --num_samples="${num_samples}" \
+--landmark="${landmark}" \
+--sliding="${sliding}" \
+--outlier_distance_threshold="${outlier_distance_threshold}" \
+--outlier_cap="${outlier_cap}" \
+--neighbor_distance="${neighbor_distance}" \
 | tee "${log}"
 
 end=`timestamp`

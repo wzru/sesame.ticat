@@ -32,6 +32,11 @@ time_window = 200
 num_online_clusters = 80
 delta_grid = 0.2
 num_samples = 100
+landmark = 1000
+sliding = 1000
+outlier_distance_threshold = 1000
+outlier_cap = 100
+neighbor_distance = 200
 
 [arg2env]
 bench.sesame.algo = algo
@@ -64,5 +69,10 @@ bench.sesame.time_window = time_window
 bench.sesame.num_online_clusters = num_online_clusters
 bench.sesame.delta_grid = delta_grid
 bench.sesame.num_samples = num_samples
+bench.sesame.landmark = landmark
+bench.sesame.sliding = sliding
+bench.sesame.outlier_distance_threshold = outlier_distance_threshold
+bench.sesame.outlier_cap = outlier_cap
+bench.sesame.neighbor_distance = neighbor_distance
 
 [val2env]

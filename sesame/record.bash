@@ -91,6 +91,11 @@ function write_record()
                 num_online_clusters INT, 			\
                 delta_grid DOUBLE, 					\
                 num_samples DOUBLE, 				\
+                landmark INT,                       \
+                sliding INT,                        \
+                outlier_distance_threshold DOUBLE,  \
+                outlier_cap INT,                    \
+                neighbor_distance DOUBLE,           \
                 ds_us BIGINT, 						\
                 out_us BIGINT, 						\
                 ref_us BIGINT, 						\
