@@ -95,6 +95,7 @@ function write_record()
                 sliding INT,                        \
                 outlier_distance_threshold DOUBLE,  \
                 outlier_cap INT,                    \
+                outlier_density_threshold DOUBLE,   \
                 neighbor_distance DOUBLE,           \
                 ds_us BIGINT, 						\
                 out_us BIGINT, 						\

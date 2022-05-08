@@ -39,6 +39,7 @@ num_samples=`must_env_val "${env}" 'bench.sesame.num_samples'`
 landmark=`must_env_val "${env}" 'bench.sesame.landmark'`
 sliding=`must_env_val "${env}" 'bench.sesame.sliding'`
 outlier_distance_threshold=`must_env_val "${env}" 'bench.sesame.outlier_distance_threshold'`
+outlier_density_threshold=`must_env_val "${env}" 'bench.sesame.outlier_density_threshold'`
 outlier_cap=`must_env_val "${env}" 'bench.sesame.outlier_cap'`
 neighbor_distance=`must_env_val "${env}" 'bench.sesame.neighbor_distance'`
 
@@ -81,6 +82,7 @@ begin=`timestamp`
 --landmark="${landmark}" \
 --sliding="${sliding}" \
 --outlier_distance_threshold="${outlier_distance_threshold}" \
+--outlier_density_threshold="${outlier_density_threshold}" \
 --outlier_cap="${outlier_cap}" \
 --neighbor_distance="${neighbor_distance}" \
 | tee "${log}"

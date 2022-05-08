@@ -35,6 +35,7 @@ num_samples = 100
 landmark = 1000
 sliding = 1000
 outlier_distance_threshold = 1000
+outlier_density_threshold = 100
 outlier_cap = 100
 neighbor_distance = 200
 
@@ -72,6 +73,7 @@ bench.sesame.num_samples = num_samples
 bench.sesame.landmark = landmark
 bench.sesame.sliding = sliding
 bench.sesame.outlier_distance_threshold = outlier_distance_threshold
+bench.sesame.outlier_density_threshold = outlier_density_threshold
 bench.sesame.outlier_cap = outlier_cap
 bench.sesame.neighbor_distance = neighbor_distance
 
