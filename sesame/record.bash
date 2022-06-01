@@ -66,6 +66,7 @@ function write_record()
                 num_points INT, 					\
                 dim INT, 							\
                 num_clusters INT, 					\
+                arr_rate INT,                       \
                 max_in_nodes INT, 					\
                 max_leaf_nodes INT, 				\
                 distance_threshold DOUBLE, 			\
@@ -106,7 +107,7 @@ function write_record()
                 qps DOUBLE, 						\
                 cmm DOUBLE, 						\
                 purity DOUBLE 						\
-			)										\
+			) auto_increment=7000					\
 			"
 
 	my_exe "INSERT INTO ${table} (                  \
