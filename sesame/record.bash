@@ -66,6 +66,7 @@ function write_record()
                 num_points INT, 					\
                 dim INT, 							\
                 num_clusters INT, 					\
+                num_res INT,                        \
                 arr_rate INT,                       \
                 max_in_nodes INT, 					\
                 max_leaf_nodes INT, 				\
