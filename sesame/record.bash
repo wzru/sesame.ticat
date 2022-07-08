@@ -105,6 +105,11 @@ function write_record()
                 sum_us BIGINT, 						\
                 lat_us DOUBLE, 						\
                 et_s DOUBLE, 						\
+                on_20 DOUBLE,                       \
+                on_40 DOUBLE,                       \
+                on_60 DOUBLE,                       \
+                on_80 DOUBLE,                       \
+                on_100 DOUBLE,                      \
                 qps DOUBLE, 						\
                 cmm DOUBLE, 						\
                 purity DOUBLE 						\
