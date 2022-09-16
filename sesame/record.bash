@@ -61,6 +61,7 @@ function write_record()
                 run_begin TIMESTAMP, 				\
                 run_end TIMESTAMP, 					\
                 tag VARCHAR(512), 					\
+                algo_id INT,                        \
                 algo VARCHAR(16), 					\
                 workload VARCHAR(16), 				\
                 num_points INT, 					\
@@ -99,6 +100,8 @@ function write_record()
                 outlier_cap INT,                    \
                 outlier_density_threshold DOUBLE,   \
                 neighbor_distance DOUBLE,           \
+                k INT,                              \
+                win_us BIGINT,                      \
                 ds_us BIGINT, 						\
                 out_us BIGINT, 						\
                 ref_us BIGINT, 						\
