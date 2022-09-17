@@ -46,6 +46,7 @@ outlier_distance_threshold=`must_env_val "${env}" 'bench.sesame.outlier_distance
 outlier_density_threshold=`must_env_val "${env}" 'bench.sesame.outlier_density_threshold'`
 outlier_cap=`must_env_val "${env}" 'bench.sesame.outlier_cap'`
 neighbor_distance=`must_env_val "${env}" 'bench.sesame.neighbor_distance'`
+k=`must_env_val "${env}" 'bench.sesame.k'`
 
 log="${session}/sesame.`date +%s%N`.log"
 echo "bench.run.log=${log}" >> "${session}/env"
@@ -93,6 +94,7 @@ begin=`timestamp`
 --outlier_density_threshold="${outlier_density_threshold}" \
 --outlier_cap="${outlier_cap}" \
 --neighbor_distance="${neighbor_distance}" \
+--k="${k}" \
 | tee "${log}"
 
 end=`timestamp`

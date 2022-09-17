@@ -46,6 +46,7 @@ outlier_distance_threshold = 1000
 outlier_density_threshold = 100
 outlier_cap = 100
 neighbor_distance = 200
+k = 0
 
 bin = benchmark
 
@@ -90,5 +91,6 @@ bench.sesame.outlier_distance_threshold = outlier_distance_threshold
 bench.sesame.outlier_density_threshold = outlier_density_threshold
 bench.sesame.outlier_cap = outlier_cap
 bench.sesame.neighbor_distance = neighbor_distance
+bench.sesame.k = k
 
 bench.sesame.bin = bin
