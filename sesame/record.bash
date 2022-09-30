@@ -101,6 +101,7 @@ function write_record()
                 outlier_density_threshold DOUBLE,   \
                 neighbor_distance DOUBLE,           \
                 k INT,                              \
+                run_offline BOOL,                   \
                 win_us BIGINT,                      \
                 ds_us BIGINT, 						\
                 out_us BIGINT, 						\
