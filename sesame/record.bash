@@ -68,6 +68,8 @@ function write_record()
                 dim INT, 							\
                 num_clusters INT, 					\
                 num_res INT,                        \
+                cluster_size INT,                   \
+                outlier_size INT,                   \
                 arr_rate INT,                       \
                 max_in_nodes INT, 					\
                 max_leaf_nodes INT, 				\
