@@ -18,7 +18,9 @@ meta_pass=`env_val "${env}" 'bench.meta.pass'`
 # The context of one bench
 bench_tag=`env_val "${env}" 'bench.tag'`
 bench_begin=`env_val "${env}" 'bench.begin'`
+bench_id=`env_val "${env}" 'bench.id'`
 workload=`must_env_val "${env}" 'bench.workload'`
+commit=`env_val "${env}" 'bench.commit'`
 
 # The context of one run
 run_begin=`env_val "${env}" 'bench.run.begin'`
@@ -57,10 +59,12 @@ function write_record()
 
 	my_exe "CREATE TABLE IF NOT EXISTS ${table} (  	\
                 id INT PRIMARY KEY AUTO_INCREMENT, 	\
+                bench_id INT,                       \
                 bench_begin TIMESTAMP, 				\
                 run_begin TIMESTAMP, 				\
                 run_end TIMESTAMP, 					\
-                tag VARCHAR(512), 					\
+                tag VARCHAR(255), 					\
+                commit VARCHAR(40),                 \
                 algo_id INT,                        \
                 algo VARCHAR(16), 					\
                 workload VARCHAR(16), 				\
@@ -118,19 +122,24 @@ function write_record()
                 on_100 DOUBLE,                      \
                 qps DOUBLE, 						\
                 cmm DOUBLE, 						\
-                purity DOUBLE 						\
-			) auto_increment=7000					\
+                purity DOUBLE, 						\
+                INDEX(bench_id),                    \
+                INDEX(bench_begin), 				\
+                INDEX(algo_id)   					\
+			)                   					\
 			"
 
 	my_exe "INSERT INTO ${table} (                  \
 		bench_begin, run_begin,                     \
-        run_end,                                    \
+        run_end, bench_id, commit,                  \
 		${detail[0]} tag                            \
 	)                   				            \
 		VALUES (                                    \
 		FROM_UNIXTIME(${bench_begin}),              \
 		FROM_UNIXTIME(${run_begin}),                \
 		FROM_UNIXTIME(${run_end}),                  \
+        ${bench_id},                                \
+        '${commit}',                                \
 		${detail[1]},                               \
 		\"${tag}\"                                  \
 	)                                               \
