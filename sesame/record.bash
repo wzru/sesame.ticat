@@ -123,6 +123,7 @@ function write_record()
                 qps DOUBLE, 						\
                 cmm DOUBLE, 						\
                 purity DOUBLE, 						\
+                et int GENERATED ALWAYS AS (timestampdiff(SECOND,run_begin,run_end)) VIRTUAL, \
                 INDEX(bench_id),                    \
                 INDEX(bench_begin), 				\
                 INDEX(algo_id)   					\
