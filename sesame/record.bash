@@ -122,6 +122,7 @@ function write_record()
                 on_100 DOUBLE,                      \
                 qps DOUBLE, 						\
                 cmm DOUBLE, 						\
+                nmi DOUBLE,                         \
                 purity DOUBLE, 						\
                 et int GENERATED ALWAYS AS (timestampdiff(SECOND,run_begin,run_end)) VIRTUAL, \
                 INDEX(bench_id),                    \
