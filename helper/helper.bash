@@ -12,3 +12,22 @@ function timestamp()
 {
 	echo `date +%s`
 }
+
+function retry_cmd()
+{
+	local cmd="${1}"
+	local retry="${2}"
+	local log="${3}"
+	local i=0
+	local ret=0
+	while [ $i -lt $retry ]; do
+		echo "[-] retry $i: $cmd" >&2
+		$cmd | tee "${log}"
+		ret=$?
+		if [ $ret -eq 0 ]; then
+			break
+		fi
+		i=$((i+1))
+	done
+	return $ret
+}

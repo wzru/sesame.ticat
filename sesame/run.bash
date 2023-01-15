@@ -1,4 +1,4 @@
-set -euo pipefail
+set -uo pipefail
 . "`cd $(dirname ${BASH_SOURCE[0]}) && pwd`/../helper/helper.bash"
 
 session="${1}"
@@ -49,12 +49,18 @@ outlier_cap=`must_env_val "${env}" 'bench.sesame.outlier_cap'`
 neighbor_distance=`must_env_val "${env}" 'bench.sesame.neighbor_distance'`
 k=`must_env_val "${env}" 'bench.sesame.k'`
 
+retry=`env_val "${env}" 'bench.sesame.retry'`
+
+if [ -z "${retry}" ]; then
+  retry=5
+fi
+
 log="${session}/sesame.`date +%s%N`.log"
 echo "bench.run.log=${log}" >> "${session}/env"
 
 begin=`timestamp`
 
-"${bin}" \
+cmd="""${bin} \
 --algo="${algo}" \
 --input_file="${input_file}" \
 --num_points="${num_points}" \
@@ -96,8 +102,14 @@ begin=`timestamp`
 --outlier_density_threshold="${outlier_density_threshold}" \
 --outlier_cap="${outlier_cap}" \
 --neighbor_distance="${neighbor_distance}" \
---k="${k}" \
-| tee "${log}"
+--k="${k}" """
+
+retry_cmd "${cmd}" "${retry}" "${log}"
+
+if [ $? -ne 0 ]; then
+  echo "ERROR: failed to retry ${retry} times"
+  exit 1
+fi
 
 end=`timestamp`
 detail=`parse_sesame_log "${log}"`
