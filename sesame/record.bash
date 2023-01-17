@@ -108,6 +108,8 @@ function write_record()
                 neighbor_distance DOUBLE,           \
                 k INT,                              \
                 run_offline BOOL,                   \
+                num_grids INT,                      \
+                gap INT,                            \
                 win_us BIGINT,                      \
                 ds_us BIGINT, 						\
                 out_us BIGINT, 						\

@@ -21,13 +21,13 @@ function retry_cmd()
 	local i=0
 	local ret=0
 	while [ $i -lt $retry ]; do
-		echo "[-] retry $i: $cmd" >&2
+		i=$((i+1))
+		echo "[-] RETRY $i/$retry : $cmd" >&2
 		$cmd | tee "${log}"
 		ret=$?
 		if [ $ret -eq 0 ]; then
 			break
 		fi
-		i=$((i+1))
 	done
 	return $ret
 }
