@@ -30,7 +30,7 @@ if [ -z "${run_begin}" ]; then
 fi
 run_end=`must_env_val "${env}" 'bench.run.end'`
 run_log=`must_env_val "${env}" 'bench.run.log'`
-detail=(`must_env_val "${env}" 'bench.sesame.detail'`)
+detail=(`must_env_val "${env}" 'bench.sesame.detail' | sed 's/inf/NULL/g'`)
 tag=`env_val "${env}" 'bench.tag'`
 
 ## Write the record tables if has meta db
@@ -39,6 +39,7 @@ tag=`env_val "${env}" 'bench.tag'`
 function my_exe()
 {
 	local query="${1}"
+    # echo "${query}"
 if [ -z "${meta_pass}" ]; then
 	mysql -h "${meta_host}" -P "${meta_port}" -u "${meta_user}" --database="${meta_db}" -e "${query}"
 else
@@ -110,6 +111,12 @@ function write_record()
                 run_offline BOOL,                   \
                 num_grids INT,                      \
                 gap INT,                            \
+                obj INT,                            \
+                queue_size_threshold INT,           \
+                dim_threshold INT,                  \
+                variance_threshold DOUBLE,          \
+                outliers_num_threshold INT,         \
+                outliers_dist_threshold DOUBLE,     \
                 win_us BIGINT,                      \
                 ds_us BIGINT, 						\
                 out_us BIGINT, 						\

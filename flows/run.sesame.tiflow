@@ -1,9 +1,7 @@
 help = Sesame benchmark entry
 tags = 
 
-flow = sesame.config algo=[[bench.sesame.algo]] input_file=[[bench.sesame.input_file]] num_points=[[bench.sesame.num_points]] dim=[[bench.sesame.dim]] num_clusters=[[bench.sesame.num_clusters]] max_in_nodes=[[bench.sesame.max_in_nodes]] max_leaf_nodes=[[bench.sesame.max_leaf_nodes]] distance_threshold=[[bench.sesame.distance_threshold]] seed=[[bench.sesame.seed]] coreset_size=[[bench.sesame.coreset_size]] radius=[[bench.sesame.radius]] delta=[[bench.sesame.delta]] beta=[[bench.sesame.beta]] buf_size=[[bench.sesame.buf_size]] alpha=[[bench.sesame.alpha]] lambda=[[bench.sesame.lambda]] clean_interval=[[bench.sesame.clean_interval]] min_weight=[[bench.sesame.min_weight]] base=[[bench.sesame.base]] cm=[[bench.sesame.cm]] cl=[[bench.sesame.cl]] grid_width=[[bench.sesame.grid_width]] min_points=[[bench.sesame.min_points]] epsilon=[[bench.sesame.epsilon]] mu=[[bench.sesame.mu]] num_last_arr=[[bench.sesame.num_last_arr]] time_window=[[bench.sesame.time_window]] num_online_clusters=[[bench.sesame.num_online_clusters]] delta_grid=[[bench.sesame.delta_grid]] num_samples=[[bench.sesame.num_samples]] arr_rate=[[bench.sesame.arr_rate]] run_offline=[[bench.sesame.run_offline]] run_eval=[[bench.sesame.run_eval]] run_cmm=[[bench.sesame.run_cmm]] run_pur=[[bench.sesame.run_pur]] \
-    : sesame.run bin=[[bench.sesame.bin]] \
-    : sesame.record
+flow = sesame.run : sesame.record
 
 [arg]
 algo = 0
@@ -24,10 +22,10 @@ coreset_size = 100
 radius = 50.0
 delta = 100.0
 beta = 0.1
-buf_size = 100
+buf_size = 10000
 alpha = 0.998
 lambda = 1.0
-clean_interval = 400
+clean_interval = 2500
 min_weight = 0.5
 base = 2
 cm = 5.0
@@ -37,17 +35,23 @@ min_points = 10
 epsilon = 20.0
 mu = 2.0
 num_last_arr = 2
-time_window = 200
+time_window = 50
 num_online_clusters = 80
 delta_grid = 0.2
-num_samples = 100
-landmark = 1000
-sliding = 1000
+num_samples = 10
+landmark = 10000
+sliding = 500
 outlier_distance_threshold = 1000
 outlier_density_threshold = 100
 outlier_cap = 100
 neighbor_distance = 200
-k = 0
+k = 7
+obj = 0
+queue_size_threshold = 10000
+dim_threshold = 30
+variance_threshold = 100.0
+outliers_num_threshold = 200
+outliers_dist_threshold = 50.0
 
 bin = benchmark
 
@@ -94,5 +98,11 @@ bench.sesame.outlier_density_threshold = outlier_density_threshold
 bench.sesame.outlier_cap = outlier_cap
 bench.sesame.neighbor_distance = neighbor_distance
 bench.sesame.k = k
+bench.sesame.obj = obj
+bench.sesame.queue_size_threshold = queue_size_threshold
+bench.sesame.dim_threshold = dim_threshold
+bench.sesame.variance_threshold = variance_threshold
+bench.sesame.outliers_num_threshold = outliers_num_threshold
+bench.sesame.outliers_dist_threshold = outliers_dist_threshold
 
 bench.sesame.bin = bin

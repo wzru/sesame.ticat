@@ -48,6 +48,12 @@ outlier_density_threshold=`must_env_val "${env}" 'bench.sesame.outlier_density_t
 outlier_cap=`must_env_val "${env}" 'bench.sesame.outlier_cap'`
 neighbor_distance=`must_env_val "${env}" 'bench.sesame.neighbor_distance'`
 k=`must_env_val "${env}" 'bench.sesame.k'`
+obj=`must_env_val "${env}" 'bench.sesame.obj'`
+queue_size_threshold=`must_env_val "${env}" 'bench.sesame.queue_size_threshold'`
+dim_threshold=`must_env_val "${env}" 'bench.sesame.dim_threshold'`
+variance_threshold=`must_env_val "${env}" 'bench.sesame.variance_threshold'`
+outliers_num_threshold=`must_env_val "${env}" 'bench.sesame.outliers_num_threshold'`
+outliers_dist_threshold=`must_env_val "${env}" 'bench.sesame.outliers_dist_threshold'`
 
 retry=`env_val "${env}" 'bench.sesame.retry'`
 
@@ -102,7 +108,13 @@ cmd="""${bin} \
 --outlier_density_threshold="${outlier_density_threshold}" \
 --outlier_cap="${outlier_cap}" \
 --neighbor_distance="${neighbor_distance}" \
---k="${k}" """
+--k="${k}" \
+--obj="${obj}" \
+--queue_size_threshold="${queue_size_threshold}" \
+--dim_threshold="${dim_threshold}" \
+--variance_threshold="${variance_threshold}" \
+--outliers_num_threshold="${outliers_num_threshold}" \
+--outliers_dist_threshold="${outliers_dist_threshold}" """
 
 retry_cmd "${cmd}" "${retry}" "${log}"
 
