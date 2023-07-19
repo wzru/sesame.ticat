@@ -117,6 +117,8 @@ function write_record()
                 variance_threshold DOUBLE,          \
                 outliers_num_threshold INT,         \
                 outliers_dist_threshold DOUBLE,     \
+                change_count INT,                   \
+                final_algo INT,                     \
                 win_us BIGINT,                      \
                 ds_us BIGINT, 						\
                 out_us BIGINT, 						\
