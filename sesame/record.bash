@@ -118,7 +118,11 @@ function write_record()
                 outliers_num_threshold INT,         \
                 outliers_dist_threshold DOUBLE,     \
                 change_count INT,                   \
+                change_log TEXT,                    \
+                first_algo INT,                     \
                 final_algo INT,                     \
+                mig_us BIGINT,                      \
+                det_us BIGINT,                      \
                 win_us BIGINT,                      \
                 ds_us BIGINT, 						\
                 out_us BIGINT, 						\
